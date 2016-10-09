@@ -6,3 +6,7 @@ function lit_on_click() {
 	
 }
 
+function enterNextPage() {
+    window.location="/main.html"
+}
+
