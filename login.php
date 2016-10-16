@@ -7,7 +7,7 @@
     <body>
         <div class="col-xs-6 col-xs-offset-3" style="padding-top:50px">
             <h1>Log In</h1>
-            <form action="log_in.php" method="post" style="padding-top:15px">
+            <form action="\Applications/XAMPP/xamppfiles/htdocs/log_in_new.php" method="post" style="padding-top:15px">
                 <div class="form-group">
                     <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email">
                 </div>

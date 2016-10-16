@@ -1,16 +1,34 @@
+/*jslint devel: true */
+/*global $, jQuery, alert*/
+
 function enterMainPage() {
-    window.location="/main.html"
+    "use strict";
+    window.location = "/main.html";
 }
 
 function enterLoginPage() {
-    window.location="/login.html"
+    "use strict";
+    window.location = "/login.html";
 }
 
 function enterSignUpPage() {
-    window.location="/sign_up.html"
+    "use strict";
+    window.location = "/sign_up.html";
 }
 
 function enterAboutPage() {
-    window.location="/about.html"
+    "use strict";
+    window.location = "/about.html";
+}
+
+function logIn() {
+    "use strict";
+    var data = $('#form').serializeArray().reduce(function (obj, item) {
+        obj[item.name] = item.value;
+        return obj;
+    }, {});
+    console.log(data['email']);
+    //var formData = new FormData(document.querySelector('form'))
+    enterMainPage();
 }
 
