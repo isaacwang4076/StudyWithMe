@@ -3,29 +3,33 @@
     <?php echo "My first PHP script!";?>
     
 	<head>
-		<title>SiteName</title>
+		<title>StudyWithMe</title>
 	</head>
 
 	<body background="https://heavyeditorial.files.wordpress.com/2016/05/harambe-22.jpg?quality=65&strip=all&strip=all"
           style="background-repeat:no-repeat; background-position:50% 0%;">
-        <h1 class="text-center" style="padding-top:130px">A new way to study.</h1>
+        <h1 class="text-center" style="padding-top:130px; color:white">A new way to study.</h1>
         <!--<p class="text-center">
             <em id="tagline">Shit is lit as fuck fam.</em>
         </p>-->
-        <div style="padding-top:40px">
+        <div style="padding-top:50px">
             <button type="button" class="btn btn-primary btn-lg center-block"
-                onclick="enterNextPage()">Get Started</button>
+                onclick="enterLoginPage()">Get Started</button>
+        </div>
+        <div style="padding-top:50px">
+            <button type="button" class="btn btn-link center-block"
+                    onclick="enterAboutPage()">About</button>
         </div>
 	</body>
 
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-    <script src="helloWorldScript.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="page_navigation.js"></script>
     
 </html>
