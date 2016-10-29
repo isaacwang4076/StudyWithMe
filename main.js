@@ -1,9 +1,9 @@
 /*jslint devel: true */
 /*global $, jQuery, alert*/
 
-function enterMainPage() {
+function enterWelcomePage() {
     "use strict";
-    window.location = "/main.html";
+    window.location = "/welcome.html";
 }
 
 function enterLoginPage() {
@@ -29,6 +29,6 @@ function logIn() {
     }, {});
     console.log(data['email']);
     //var formData = new FormData(document.querySelector('form'))
-    enterMainPage();
+    enterWelcomePage();
 }
 
