@@ -40,7 +40,3 @@ function User(first_name, last_name, email, password, school, tag) {
     this.password = password;
     this.school = school;
 }
-
-
-
-
