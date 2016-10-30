@@ -31,4 +31,3 @@ function logIn() {
     //var formData = new FormData(document.querySelector('form'))
     enterMainPage();
 }
-
