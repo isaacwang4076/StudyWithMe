@@ -32,3 +32,15 @@ function logIn() {
     enterWelcomePage();
 }
 
+function User(first_name, last_name, email, password, school, tag) {
+    "use strict";
+    this.first_name = first_name;
+    this.last_name = last_name;
+    this.email = email;
+    this.password = password;
+    this.school = school;
+}
+
+
+
+

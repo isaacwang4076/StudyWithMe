@@ -16,11 +16,17 @@ app.get('/', function(req, res) {
     res.sendFile(__dirname + '/welcome.html');
 });
 
-app.post('/', function(req, res) {
+app.post('/sign_up', function(req, res) {
     console.log("hello");
+    pushUser(req.body.first_name, req.body.last_name, req.body.email, req.body.password, req.body.school, req.body.tag);
+    res.sendFile(__dirname + '/home.html')
 });
 
 
 app.listen(PORT, function() {
     console.log('Server is running');
 });
+
+function pushUser(first_name, last_name, email, password, school, tag) {
+    // add user to database
+}
