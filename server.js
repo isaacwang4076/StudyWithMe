@@ -47,6 +47,6 @@ function pushUser(first_name, last_name, email, password, school, tag) {
     // add user to database
 }
 
-function checkUser(email, password) {
-
+function checkLogin(email, password) {
+	return null;
 }
