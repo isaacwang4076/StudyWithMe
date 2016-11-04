@@ -23,7 +23,14 @@ app.post('/sign_up', function(req, res) {
 });
 
 app.post('/login', function(req, res) {
-	//var user = checkLogin(req.body.email, req.body.password);
+	var user = checkLogin(req.body.email, req.body.password, function(user) {
+		if (user != null) {
+			res.sendFile(__dirname + '/home.html');
+			res.send({me: user});
+		} else {
+			// incorrect login info
+		}
+	});
 	//if (user != null) {
 		//res.sendFile(__dirname + '/home.html');
 		//res.send({me: user});
@@ -47,6 +54,8 @@ function pushUser(first_name, last_name, email, password, school, tag) {
     // add user to database
 }
 
-function checkLogin(email, password) {
-	return null;
+function checkLogin(email, password, onReceive) {
+	// grab user from database here, store in var user
+	var user;
+	onReceive(user);
 }
