@@ -10,20 +10,19 @@ app.use(bodyParser.urlencoded({extended: true}));
 //app.set('view engine', 'ejs');
 
 app.get('/', function(req, res) {
-    console.log("yo");
     //console.log(req.body.first_name); 
     //res.render('welcome');
     res.sendFile(__dirname + '/welcome.html');
 });
 
 app.post('/sign_up', function(req, res) {
-    console.log("hello");
     pushUser(new User(req.body.first_name, req.body.last_name, req.body.email, req.body.password, req.body.school, req.body.tag));
     res.sendFile(__dirname + '/home.html')
 });
 
 app.post('/login', function(req, res) {
-	var user = checkLogin(req.body.email, req.body.password, function(user) {
+	checkLogin(req.body.email, req.body.password, function(user) {
+		console.log("login callback");
 		if (user != null) {
 			res.sendFile(__dirname + '/home.html');
 			res.send({me: user});

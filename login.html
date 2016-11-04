@@ -5,11 +5,10 @@
 	</head>
     
     <body>
-	<button id="butt">click</button>
         <div class="col-xs-6 col-xs-offset-3" style="padding-top:50px">
             <h1>Log In</h1>
             <!--<form id="login_form" action="/login" method="post" style="padding-top:15px">-->
-            <form style="padding-top:15px">
+            <form action="/login" method="post" style="padding-top:15px">
                 <div class="form-group">
                     <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email">
                 </div>
@@ -17,7 +16,6 @@
                     <input type="password" class="form-control" id="password" name="password" placeholder="Password">
                 </div>
                 <button type="submit" class="btn btn-primary center-block" style="width:100%">Sign In</button>
-                <!--<button id="login_button" class="btn btn-primary center-block" style="width:100%">Sign In</button>-->
             </form>
             <button type="button" class="btn btn-link center-block" onclick="enterSignUpPage()" style="padding-top:20px">Create Account</button>
         </div>
