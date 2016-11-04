@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "dankmemes-515d7",
+  "private_key_id": "78bc86ab2774783b959146ee9ca2bce0d840eda3",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvwIBADANBgkqhkiG9w0BAQEFAASCBKkwggSlAgEAAoIBAQC9M1/t/388S1Z+\nvEfbS0T5CcrSzWPVtpr4+8e1pt3PEXLXfK62Dbxz6usKwFMtTGe+8j5v4NlEhAPR\n+jvuUY3KdyQRssvMjASYlcC/wyFblGv1akJyzpxMXsnG7XJfSkCwWQYYuLj5knkm\nXGCepgjMMWJoyFrJFgbiAbfGtyWxtT+Y9wNG+q9ClS1VQ4SrEKF5AI+b72PL8qVF\nfT13AaNt43ygnGUZu/SrjKhlY/P0hMAlHFMqLhCGRzDBL9e72eAXR7XiJ12rQ5Vi\nBUqxYrzjagmNUfgSJH31LSrYL4TG4Q/RjbCvilg2XMp/8U+cHxGq2hBgaBdP9vSs\nf+CRTTa7AgMBAAECggEARYsRsrBb+zSR6WmZW/CxvHwt8ggOryo8klIxmQJpu0fl\nl3E74qzv3Qe3Ny90I01XQOdXrdXO5pFDujWpO7L8VDQwrNS0dk3tDozU2WeG5luK\nxx00qXBqIOQidJ0okgAAARHn3MRhMVL2dvQzi3zp9OweCPfD7u/Kvd31x/Pfxg6A\nMvnwwuoz9x39jmSCmJMiGLCpHzMkA3cliwHdCpVGdIXzpnQE4crM3026Mj0NHImM\nlNB+jHCyTyDneqhKrePQQLvCzbkR+KWR8mlB+mssIh+iExZxF+ySnB5q/TpfTsEI\nzAZ2x7tdYlXiY8ZGqOfnd7UhjzzQ7UtgUZTNNqOgAQKBgQDeJOP9uC06hzm7vqTV\nlvcuWdhiYeX1ceyThPhJ9IUiV9wtPc6IkD8RzonvOrqHHMIEcO6rAvfNmnHfBdrH\nRGT7C+jZ5BQbmlSq01X4JP2ggYV6Th4vXQcMVe3StJkwDcIpcfvqOSeQ8fq1+N77\n7u3Hwqv/Q8qlYVlWrSH/ki0QAQKBgQDaCSxZaI4xdTp4hh1yKYQmnjKgEPsf36C9\nBO7s+tYv8D6Mek31eHoa/BmAucQNqKoOMwj9LANLtjok69kgK/oCnUAxqg62faI7\n+RUw8s7o9DYcbB5DC2lxvgNXdm74907KhMXO8N/Dquw0oCUUUJzM+h9+eRQrx8fN\nBgoTFAKGuwKBgQCfbEg22MuUumFDjLENHDeuiwoQqQN4n1bSE9aAdLxrBjTcPwQO\n2753kAtLpZEh0BCpUUbncczXQCTCkpgM89eol0Z3wQhxOtPSeLK00A849lsNiCx/\nfzrErpJr6fIaG3Whesz4riXoDtEHcWDN2w3Ik7wOCN/QyklsO/ovSP+QAQKBgQCH\nK0qwPw5wAOH32AUnQi+oFUkDTKOyldu7cvSAO91PKNxOEICGHmNsmT9iO0gcw6Rx\nWxhGg+OjK1yOiRw5QqoitsQWRfwLDIXoMjn993lomAV3x1tXaxq6pfbCYSzY8dCJ\n4pgS++dtEWiQE3wJRRSASsv9hyiHH7pxEz5pp20NgwKBgQCKYyPl1eCi+lsays4n\n0UZ4KCQzOsc/kbb+he/0ZkgbOn3MZXMN/8CDtv97QarmtUs1uzilrR/nwsAHcApI\ngNzeimvBRqhHkDgAEojBqNlRR3SIjg0RojfDjsQQjyNGxSG6sXkGgMzgGyk76sr2\nefuAV+1++mFdUZ/ox95C9ChDPw==\n-----END PRIVATE KEY-----\n",
+  "client_email": "studywithmeserviceaccount@dankmemes-515d7.iam.gserviceaccount.com",
+  "client_id": "100969654304759287633",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://accounts.google.com/o/oauth2/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/studywithmeserviceaccount%40dankmemes-515d7.iam.gserviceaccount.com"
+}
