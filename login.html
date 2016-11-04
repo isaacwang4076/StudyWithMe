@@ -2,12 +2,35 @@
 <html lang="en">
     <head>
         <title>StudyWithMe - Log In or Sign Up</title>
-    </head>
+    	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+		<!--<script src="jquery.js"></script>-->
+		<script>
+			$(document.ready(function() {
+				$("#butt").click(function() {
+					alert("pls");
+				});
+				/*$("form").submit(function(event) {
+					alert("lmao");
+					event.preventDefault();
+				});*/
+				/*$("#login_button").click(function() {
+					alert("yooooo");
+					$.post('/login', 
+					{email: "dank", password: "memes"},
+					function(data, status) {
+						alert("Hell yeah");
+					});
+				});*/
+			});
+		</script>
+	</head>
     
     <body>
+	<button id="butt">click</button>
         <div class="col-xs-6 col-xs-offset-3" style="padding-top:50px">
             <h1>Log In</h1>
-            <form action="/" method="post" style="padding-top:15px">
+            <!--<form id="login_form" action="/login" method="post" style="padding-top:15px">-->
+            <form style="padding-top:15px">
                 <div class="form-group">
                     <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email">
                 </div>
@@ -15,12 +38,13 @@
                     <input type="password" class="form-control" id="password" name="password" placeholder="Password">
                 </div>
                 <button type="submit" class="btn btn-primary center-block" style="width:100%">Sign In</button>
+                <!--<button id="login_button" class="btn btn-primary center-block" style="width:100%">Sign In</button>-->
             </form>
             <button type="button" class="btn btn-link center-block" onclick="enterSignUpPage()" style="padding-top:20px">Create Account</button>
         </div>
     </body>
     
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>-->
     
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
