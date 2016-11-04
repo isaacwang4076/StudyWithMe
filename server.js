@@ -5,7 +5,11 @@ const PORT = process.env.PORT || 3000;
 
 const app = express();
 
-//Setup firebase
+// Failed login constants
+const NOT_A_USER = 1;
+const WRONG_PASS = 2;
+
+// Setup firebase
 var firebase = require("firebase");
 firebase.initializeApp({
 serviceAccount: "DankMemes-78bc86ab2774.json",
@@ -29,7 +33,7 @@ app.post('/sign_up', function(req, res) {
 });
 
 app.post('/login', function(req, res) {
-	checkLogin(req.body.email, req.body.password, function(user) {
+	verifyUser(req.body.email, req.body.password, function(user, error) {
 		console.log("login callback");
 		if (user != null) {
 			res.sendFile(__dirname + '/home.html');
@@ -84,7 +88,7 @@ function verifyUser(email, password, callback) {
 
       /* User doesn't exist */
       if (user == null) {
-        callback(false, "LOGIN FAILED: User name doesn't exist");
+        callback(false, NOT_A_USER);
       }
       else {
         /* LOGIN SUCCESSFUL */
@@ -93,7 +97,7 @@ function verifyUser(email, password, callback) {
         }
         /* Wrong password */
         else {
-          callback(false, "LOGIN FAILED: Wrong password");
+          callback(false, WRONG_PASS);
         }
 
       }
@@ -127,8 +131,3 @@ function pushUser(first_name, last_name, email, password, school, tag) {
     // add user to database
 }
 
-function checkLogin(email, password, onReceive) {
-	// grab user from database here, store in var user
-	var user;
-	onReceive(user);
-}
