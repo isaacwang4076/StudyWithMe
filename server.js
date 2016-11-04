@@ -30,10 +30,6 @@ app.post('/login', function(req, res) {
 			// incorrect login info
 		}
 	});
-	//if (user != null) {
-		//res.sendFile(__dirname + '/home.html');
-		//res.send({me: user});
-	//}
 });
 
 
