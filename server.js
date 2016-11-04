@@ -5,7 +5,12 @@ const PORT = process.env.PORT || 3000;
 
 const app = express();
 
-//Setup firebase
+// Failed login constants
+const NOT_A_USER = 1;
+const WRONG_PASS = 2;
+const TECH_ERROR = 3;
+
+// Setup firebase
 var firebase = require("firebase");
 firebase.initializeApp({
 serviceAccount: "DankMemes-78bc86ab2774.json",
@@ -29,7 +34,7 @@ app.post('/sign_up', function(req, res) {
 });
 
 app.post('/login', function(req, res) {
-	checkLogin(req.body.email, req.body.password, function(user) {
+	verifyUser(req.body.email, req.body.password, function(user, error) {
 		console.log("login callback");
 		if (user != null) {
 			res.sendFile(__dirname + '/home.html');
@@ -38,10 +43,6 @@ app.post('/login', function(req, res) {
 			// incorrect login info
 		}
 	});
-	//if (user != null) {
-		//res.sendFile(__dirname + '/home.html');
-		//res.send({me: user});
-	//}
 });
 
 
@@ -88,7 +89,7 @@ function verifyUser(email, password, callback) {
 
       /* User doesn't exist */
       if (user == null) {
-        callback(null, "LOGIN FAILED: User name doesn't exist");
+        callback(null, NOT_A_USER);
       }
       else {
         /* LOGIN SUCCESSFUL */
@@ -102,14 +103,14 @@ function verifyUser(email, password, callback) {
         }
         /* Wrong password */
         else {
-          callback(null, "LOGIN FAILED: Wrong password");
+          callback(null, WRONG_PASS);
         }
 
       }
     },
     /* Technical error */
     function error(errorObject) {
-      callback(null, errorObject.code);
+      callback(null, TECH_ERROR);
     }
   );
 }
@@ -137,8 +138,3 @@ function pushUser(first_name, last_name, email, password, school, tag) {
     // add user to database
 }
 
-function checkLogin(email, password, onReceive) {
-	// grab user from database here, store in var user
-	var user;
-	onReceive(user);
-}

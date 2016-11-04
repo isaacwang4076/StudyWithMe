@@ -39,4 +39,5 @@ function User(first_name, last_name, email, password, school, tag) {
     this.email = email;
     this.password = password;
     this.school = school;
+	this.tag = tag;
 }
