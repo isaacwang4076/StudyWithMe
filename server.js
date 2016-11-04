@@ -8,6 +8,7 @@ const app = express();
 // Failed login constants
 const NOT_A_USER = 1;
 const WRONG_PASS = 2;
+const TECH_ERROR = 3;
 
 // Setup firebase
 var firebase = require("firebase");
@@ -90,29 +91,34 @@ function verifyUser(email, password, callback) {
 
       /* User doesn't exist */
       if (user == null) {
-        callback(false, NOT_A_USER);
+        callback(null, NOT_A_USER);
       }
       else {
         /* LOGIN SUCCESSFUL */
         if (user.password == password) {
-          callback(true, null);
+
+          //create user object from firebase data and return as first param
+          var loggedIn = new User(user.first_name, user.last_name, user.email,
+            user.password, user.school, user.tag);
+          
+          callback(loggedIn, null);
         }
         /* Wrong password */
         else {
-          callback(false, WRONG_PASS);
+          callback(null, WRONG_PASS);
         }
 
       }
     },
     /* Technical error */
     function error(errorObject) {
-      callback(false, errorObject.code);
+      callback(null, TECH_ERROR);
     }
   );
 }
 
-verifyUser("erz007@ucsd.edu", "secure password", function(successBool, error){
-    if (successBool) {
+verifyUser("erz007@ucsd.edu", "secure password", function(user, error){
+    if (user) {
       console.log("SUCCESS");
     }
     else {
@@ -127,6 +133,7 @@ function User(first_name, last_name, email, password, school, tag) {
     this.email = email;
     this.password = password;
     this.school = school;
+    this.tag = tag;
 }
 
 function pushUser(first_name, last_name, email, password, school, tag) {
