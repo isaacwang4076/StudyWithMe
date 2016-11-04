@@ -28,7 +28,8 @@ app.get('/', function(req, res) {
 });
 
 app.post('/sign_up', function(req, res) {
-    pushUser(new User(req.body.first_name, req.body.last_name, req.body.email, req.body.password, req.body.school, req.body.tag));
+	console.log(req.body.first_name);
+    pushUser(req.body.first_name, req.body.last_name, req.body.email, req.body.password, req.body.school, req.body.tag);
     res.sendFile(__dirname + '/home.html')
 });
 
@@ -70,7 +71,8 @@ function pushUser(first_name, last_name, email, password, school, tag) {
     tag: tag
   });
 }
-pushUser("Eric", "Zhang", "erz007@ucsd.edu", "secure password", "UCSD",
+
+pushUser("Eric", "Zhang", "erz007@ucsdaf.edu", "secure password", "UCSD",
     "SwagDemon69");
 
 /* Check email and password login. callback(bool success, string error) */
