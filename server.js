@@ -59,6 +59,7 @@ number: "69"
 
 /* Add user to database */
 function pushUser(first_name, last_name, email, password, school, tag) {
+  console.log("PUSHING USER");
   var usersRef = database.ref("Users");
   //id encoding
   var userID = encodeURIComponent(email).replace(/\./g, '%2E');
@@ -71,8 +72,6 @@ function pushUser(first_name, last_name, email, password, school, tag) {
     tag: tag
   });
 }
-pushUser("Eric", "Zhang", "erz007@ucsd.edu", "secure password", "UCSD",
-    "SwagDemon69");
 
 /* Check email and password login. callback(bool success, string error) */
 function verifyUser(email, password, callback) {
@@ -133,8 +132,3 @@ function User(first_name, last_name, email, password, school, tag) {
     this.school = school;
     this.tag = tag;
 }
-
-function pushUser(first_name, last_name, email, password, school, tag) {
-    // add user to database
-}
-
