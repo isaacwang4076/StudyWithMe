@@ -29,7 +29,6 @@ app.get('/', function(req, res) {
 });
 
 app.post('/sign_up', function(req, res) {
-	console.log(req.body.first_name);
     pushUser(req.body.first_name, req.body.last_name, req.body.email, req.body.password, req.body.school, req.body.tag);
     res.sendFile(__dirname + '/home.html')
 });
@@ -39,7 +38,7 @@ app.post('/login', function(req, res) {
 		console.log("login callback");
 		if (user != null) {
 			res.sendFile(__dirname + '/home.html');
-			res.send({me: user});
+			//res.send({me: user});
 		} else {
 			// incorrect login info
 		}
@@ -135,8 +134,3 @@ function User(first_name, last_name, email, password, school, tag) {
     this.school = school;
     this.tag = tag;
 }
-
-function pushUser(first_name, last_name, email, password, school, tag) {
-    // add user to database
-}
-
