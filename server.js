@@ -18,8 +18,13 @@ databaseURL: "https://dankmemes-515d7.firebaseio.com"
 });
 var database = firebase.database();
 
+
+/* HTTP CODE */
+
+
 app.use(express.static(__dirname + '/'));
 app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.json());
 //app.set('view engine', 'ejs');
 
 app.get('/', function(req, res) {
@@ -29,18 +34,34 @@ app.get('/', function(req, res) {
 });
 
 app.post('/sign_up', function(req, res) {
-    pushUser(req.body.first_name, req.body.last_name, req.body.email, req.body.password, req.body.school, req.body.tag);
-    res.sendFile(__dirname + '/home.html')
+    pushUser(req.body.first_name, req.body.last_name, req.body.email,
+      req.body.password, req.body.school, req.body.tag, function(user) {
+          if (user) {
+            console.log("User account successfully created");
+            res.sendFile(__dirname + '/home.html')
+          }
+          else {
+            console.log("Couldn't make account");
+            res.send("Couldn't make account");
+          }
+      });
 });
 
 app.post('/login', function(req, res) {
+  console.log("LOGIN ATTEMPT with following info:");
+  console.log(req.body);
 	verifyUser(req.body.email, req.body.password, function(user, error) {
-		console.log("login callback");
-		if (user != null) {
-			res.sendFile(__dirname + '/home.html');
-			//res.send({me: user});
+		if (user) {
+      console.log("SUCCESSFUL LOGIN");
+			//res.sendFile(__dirname + '/home.html');
+      res.send("GOOD JOB U LOGGED IN");
 		} else {
 			// incorrect login info
+      console.log("LOGIN FAILED");
+      res.send("REKT -- BAD LOGIN INFO");
+
+      // send error page/msg
+
 		}
 	});
 });
@@ -50,40 +71,56 @@ app.listen(PORT, function() {
     console.log('Server is running');
 });
 
-function testDatabase() {
-  database.ref("test").set({
-dank: "yes",
-number: "69"
-});
+
+
+
+
+/*** USER API ***/
+
+function User(first_name, last_name, email, password, school, tag) {
+    this.first_name = first_name;
+    this.last_name = last_name;
+    this.email = email;
+    this.password = password;
+    this.school = school;
+    this.tag = tag;
 }
 
+
 /* Add user to database */
-function pushUser(first_name, last_name, email, password, school, tag) {
-  console.log("PUSHING USER");
-  var usersRef = database.ref("Users");
-  //id encoding
-  var userID = encodeURIComponent(email).replace(/\./g, '%2E');
-  usersRef.child(userID).set({
-    first_name: first_name,
-    last_name: last_name,
-    email: email,
-    password: password,
-    school: school,
-    tag: tag
-  });
+function pushUser(first_name, last_name, email, password, school, tag, callback) {
+  //if any fields are empty, then don't make
+  if (!first_name || !last_name || !email || !password || !school || !tag) {
+    callback(null);
+  }
+  else {
+    console.log("PUSHING USER");
+    var usersRef = database.ref("Users");
+    //id encoding
+    var userID = encodeURIComponent(email).replace(/\./g, '%2E');
+    usersRef.child(userID).set({
+      first_name: first_name,
+      last_name: last_name,
+      email: email,
+      password: password,
+      school: school,
+      tag: tag
+    });
+    callback(new User(first_name, last_name, email, password, school, tag));
+  }
 }
+
 
 /* Check email and password login. callback(bool success, string error) */
 function verifyUser(email, password, callback) {
   //id encoding
   var userID = encodeURIComponent(email).replace(/\./g, '%2E');
-  console.log("attempting: " + userID);
 
   //check user database
   var userRef = database.ref("Users").child(userID);
   userRef.on("value",
     function success(snapshot) {
-      console.log("LOGIN ATTEMPT");
+      console.log("LOGIN ATTEMPT -- FIREBASE CHECKING");
       var user = snapshot.val();
 
       /* User doesn't exist */
@@ -114,21 +151,4 @@ function verifyUser(email, password, callback) {
   );
 }
 
-verifyUser("erz007@ucsd.edu", "secure password", function(user, error){
-    if (user) {
-      console.log("SUCCESS");
-    }
-    else {
-      console.log("FAILED");
-      console.log("REASON: " + error);
-    }
-});
 
-function User(first_name, last_name, email, password, school, tag) {
-    this.first_name = first_name;
-    this.last_name = last_name;
-    this.email = email;
-    this.password = password;
-    this.school = school;
-    this.tag = tag;
-}
